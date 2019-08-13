@@ -24,6 +24,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.http.HttpUtil;
 
 
 /**
@@ -57,6 +61,7 @@ public class CameraActivity extends AppCompatActivity {
          *     调用相机
          * */
         Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
         cameraView = findViewById(R.id.cameraView);
         startActivityForResult(captureIntent,REQ_1);
     }
@@ -70,6 +75,7 @@ public class CameraActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == REQ_1) {
+
                 Boolean uploadResult =false;
                 // 接收拍摄数据
                 Bundle bundle = data.getExtras();
@@ -82,8 +88,12 @@ public class CameraActivity extends AppCompatActivity {
                 String imageFilePath = saveImage(generateTimeStamp(),imageBmp);
 
                 // 传入图片路径，进行上传
-                if (imageFilePath != null)
-                  uploadImage(imageFilePath);
+//                if (imageFilePath != null) {
+//                    HashMap<String, Object> paramMap = new HashMap<>();
+//                    paramMap.put("file", FileUtil.file(imageFilePath));
+//                    String result= HttpUtil.post("服务器地址", paramMap);
+//                    System.out.println(result);
+//                }
 
 
             }
@@ -114,13 +124,6 @@ public class CameraActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return null;
-    }
-
-
-
-
-    public void uploadImage(String targetUrl) {
-
     }
 
 
