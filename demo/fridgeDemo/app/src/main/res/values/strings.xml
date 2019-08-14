@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">cameraTest</string>
+    <string name="button">Button</string>
+    <string name="camera_btn">手动拍照上传</string>
+    <string name="todo">TODO</string>
+    <string name="gps_btn">定位获取上传</string>
+    <string name="gpsDefaultText">正在进行定位...</string>
+    <string name="gpsResultDefault">定位获取结果为：</string>
+    <string name="backHome_btn">返回</string>
+    <string name="IO_btn">IO采集上传</string>
+    <string name="tmp_btn">温度采集上传</string>
+</resources>
